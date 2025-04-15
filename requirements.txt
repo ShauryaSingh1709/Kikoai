@@ -1,0 +1,10 @@
+pyttsx3
+speechrecognition
+PyQt5
+deepface
+opencv-python
+google-generativeai
+requests
+pywhatkit
+pymongo
+elevenlabs
