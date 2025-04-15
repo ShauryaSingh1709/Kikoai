@@ -18,5 +18,5 @@ Kiko is an offline + online AI voice assistant like Alexa, made in Python with:
 ## How to Run
 1. Clone the repo
 2. Install dependencies
-bash
+3. bash
 pip install -r requirements.txt
