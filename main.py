@@ -1,9 +1,15 @@
 from voice.listen import listen
 from voice.speak import speak
 from core.brain import process_query
-from gui.interface import start_gui
-from services.face_emotion import get_emotion
 from utils.logger import log_event
+
+try:
+    from gui.interface import start_gui
+    from services.face_emotion import get_emotion
+except ModuleNotFoundError as e:
+    print("Module import error:", e)
+    start_gui = None
+    get_emotion = lambda: "neutral"
 
 def main():
     log_event("Kiko started")
@@ -13,8 +19,9 @@ def main():
     emotion = get_emotion()
     speak(f"Kya haal hai? Tum {emotion} lag rahe ho aj.", emotion=emotion)
 
-    # Start GUI in background (non-blocking)
-    start_gui()
+    # Start GUI if available
+    if start_gui:
+        start_gui()
 
     while True:
         try:
